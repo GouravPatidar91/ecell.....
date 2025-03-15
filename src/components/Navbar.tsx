@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
               }`}
             />
             <span 
-              className={`block w-6 h-0.5 bg-current transition-opacity duration-300 ease-in-out ${
+              className={`block w-6 h-0.5 bg-grey transition-opacity duration-300 ease-in-out ${
                 isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
               }`}
             />
