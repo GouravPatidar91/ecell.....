@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
               className="text-2xl font-bold tracking-tighter"
               target="_blank"
             >
-              <img src="/images/SCSIT logo.png" className="max-w-[30px] h-auto mix-blend-multiply" alt="SCSIT Logo" />
+              <img src="/images/SCSIT logo.png" className="max-w-[35px] h-auto mix-blend-multiply" alt="SCSIT Logo" />
             </a>
           </div>
 
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed inset-0 z-40 bg-white/30 :bg-black flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 bg-white/15 :bg-black flex flex-col items-center justify-center"
           >
             <nav className="flex flex-col items-center space-y-8">
               {['About', 'Initiatives', 'Team', 'Contact'].map((item) => (
