@@ -188,18 +188,21 @@ const TeamSection: React.FC = () => {
           </RevealAnimation>
         </div>
         
-        <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
-          {teamMembers.map((member, index) => (
-            <TeamMember
-              key={member.id}
-              name={member.name}
-              position={member.position}
-              imageSrc={member.image_url}
-              socialLinks={member.socialLinks}
-              delay={100 * (index + 1)}
-            />
-          ))}
-        </Slider>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
+            {teamMembers.map((member, index) => (
+              <div className="flex justify-center" key={member.id}>
+                <TeamMember
+                  name={member.name}
+                  position={member.position}
+                  imageSrc={member.image_url}
+                  socialLinks={member.socialLinks}
+                  delay={100 * (index + 1)}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     </section>
   );
