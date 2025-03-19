@@ -157,7 +157,7 @@ const TeamSection: React.FC = () => {
 
   if (error && teamMembers.length === 0) {
     return (
-      <section id="team" className="py-24 px-4 bg-secondary/50">
+      <section id="team" className="py-24 px-4 bg-secondary/30">
         <div className="max-w-7xl mx-auto text-center">
           <span className="inline-block py-1 px-3 mb-3 text-xs tracking-wider uppercase rounded-full bg-secondary text-primary font-medium">Our Team</span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Meet The Leaders</h2>
@@ -168,7 +168,7 @@ const TeamSection: React.FC = () => {
   }
 
   return (
-    <section id="team" className="py-24 px-4 bg-secondary/50">
+    <section id="team" className="py-24 px-4 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
         <RevealAnimation>
           <span className="inline-block py-1 px-3 mb-3 text-xs tracking-wider uppercase rounded-full bg-secondary text-primary font-medium">Our Team</span>
