@@ -178,6 +178,12 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+/* Add this to your CSS file */
+.team-card {
+  max-width: 300px; /* Set a max width for the cards */
+  width: 100%; /* Allow cards to take full width in mobile */
+}
+
 /* Tech gradient background */
 .tech-gradient {
   background: linear-gradient(135deg, #1a1f2c 0%, #2d3748 50%, #1a1f2c 100%);
