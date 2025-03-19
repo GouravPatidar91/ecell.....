@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -5,7 +6,6 @@ import { Link } from 'react-router-dom';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 640);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,15 +16,9 @@ const Navbar: React.FC = () => {
       }
     };
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -44,7 +38,6 @@ const Navbar: React.FC = () => {
             <a 
               href="#" 
               className="text-2xl font-bold tracking-tighter"
-              style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}
             >
               E-Cell
             </a>
