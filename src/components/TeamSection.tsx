@@ -126,7 +126,7 @@ const TeamSection: React.FC = () => {
 
   if (isLoading) {
     return (
-      <section id="team" className="py-24 px-4 bg-secondary">
+      <section id="team" className="py-24 px-4 bg-secondary/30">
         <div className="max-w-7xl mx-auto">
           <span className="inline-block py-1 px-3 mb-3 text-xs tracking-wider uppercase rounded-full bg-secondary text-primary font-medium">Our Team</span>
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12">
