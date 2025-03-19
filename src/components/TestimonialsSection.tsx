@@ -68,16 +68,15 @@ const TestimonialsSection: React.FC = () => {
             </div>
           ))}
         </Slider>
-        {/* Custom navigation buttons */}
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-4 md:hidden">
           <button 
-            className="bg-blue-500 text-white px-4 py-2 rounded-l" 
+            className="slick-prev bg-blue-500 text-white px-4 py-2 rounded-l" 
             onClick={() => sliderRef.current?.slickPrev()}
           >
             Previous
           </button>
           <button 
-            className="bg-blue-500 text-white px-4 py-2 rounded-r" 
+            className="slick-next bg-blue-500 text-white px-4 py-2 rounded-r" 
             onClick={() => sliderRef.current?.slickNext()}
           >
             Next
