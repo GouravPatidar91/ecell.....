@@ -169,6 +169,25 @@ const TeamSection: React.FC = () => {
     );
   }
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // Show 3 slides in desktop mode
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 768, // Adjust for mobile devices
+        settings: {
+          slidesToShow: 1, // Show 1 slide in mobile mode
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section id="team" className="py-24 px-4 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
@@ -188,7 +207,7 @@ const TeamSection: React.FC = () => {
           </RevealAnimation>
         </div>
         
-        <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
+        <Slider {...sliderSettings}>
           {teamMembers.map((member, index) => (
             <div className="flex justify-center" key={member.id}>
               <TeamMember
