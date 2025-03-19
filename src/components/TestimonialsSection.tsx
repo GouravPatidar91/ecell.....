@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -18,6 +18,18 @@ const testimonials = [
 
 const TestimonialsSection: React.FC = () => {
   const sliderRef = useRef<Slider>(null); // Create a ref for the slider
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 640); // Determine if the screen is mobile
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640); // Update state on window resize
+    };
+
+    window.addEventListener('resize', handleResize); // Add event listener for resize
+    return () => {
+      window.removeEventListener('resize', handleResize); // Cleanup event listener
+    };
+  }, []);
 
   const settings = {
     dots: true,
@@ -27,7 +39,7 @@ const TestimonialsSection: React.FC = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: false, // Disable default arrows
+    arrows: !isMobile, // Disable arrows in mobile mode
     responsive: [
       {
         breakpoint: 1024,
@@ -68,20 +80,6 @@ const TestimonialsSection: React.FC = () => {
             </div>
           ))}
         </Slider>
-        <div className="flex justify-center mt-4 md:hidden">
-          <button 
-            className="slick-prev bg-blue-500 text-white px-4 py-2 rounded-l" 
-            onClick={() => sliderRef.current?.slickPrev()}
-          >
-            Previous
-          </button>
-          <button 
-            className="slick-next bg-blue-500 text-white px-4 py-2 rounded-r" 
-            onClick={() => sliderRef.current?.slickNext()}
-          >
-            Next
-          </button>
-        </div>
       </div>
     </section>
   );
