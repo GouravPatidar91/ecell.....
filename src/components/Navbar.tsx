@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -6,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 640);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,19 +16,17 @@ const Navbar: React.FC = () => {
       }
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -37,24 +35,18 @@ const Navbar: React.FC = () => {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 px-5 pt-5 mb-5 md:px-10 py-4 transition-all duration-300 ease-in-out ${
-          isScrolled ? 'bg-white/5 dark:bg-black/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 px-5 md:px-10 py-4 transition-all duration-300 ease-in-out ${
+          isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-9 ">
+          <div className="flex items-center">
             <a 
               href="#" 
               className="text-2xl font-bold tracking-tighter"
+              style={{ fontSize: isMobile ? '1.5rem' : '2rem' }}
             >
-              <img src="/images/Ecell_transparent_svg.png" className="max-w-[30px] h-auto" alt="E-Cell Logo" />
-            </a>
-            <a 
-              href="https://scs.dauniv.ac.in/" 
-              className="text-2xl font-bold tracking-tighter"
-              target="_blank"
-            >
-              <img src="/images/SCSIT logo.png" className="max-w-[40px] h-auto mix-blend-multiply" alt="SCSIT Logo" />
+              E-Cell
             </a>
           </div>
 
@@ -110,7 +102,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed inset-0 z-40 bg-white/15 :bg-black backdrop-blur-lg flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 bg-white dark:bg-black flex flex-col items-center justify-center"
           >
             <nav className="flex flex-col items-center space-y-8">
               {['About', 'Initiatives', 'Team', 'Contact'].map((item) => (
