@@ -49,10 +49,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, position, imageSrc, socia
           />
         </div>
         <div className="p-5 text-center">
-          <h3 className="text-xl font-semibold mb-1 text-primary truncate">{name}</h3>
-
-          <p className="text-blue-500 text-sm mb-3 font-medium truncate">{position}</p>
-
+          <h3 className="text-xl font-semibold mb-1 text-primary">{name}</h3>
+          <p className="text-blue-500 text-sm mb-3 font-medium">{position}</p>
           <div className="flex justify-center space-x-3">
             {socialLinks.map((link, index) => (
               <a
@@ -126,7 +124,7 @@ const TeamSection: React.FC = () => {
 
   if (isLoading) {
     return (
-      <section id="team" className="py-24 px-4 bg-secondary">
+      <section id="team" className="py-24 px-4 bg-secondary/30">
         <div className="max-w-7xl mx-auto">
           <span className="inline-block py-1 px-3 mb-3 text-xs tracking-wider uppercase rounded-full bg-secondary text-primary font-medium">Our Team</span>
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12">
@@ -136,7 +134,7 @@ const TeamSection: React.FC = () => {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
+            <Slider dots={true} infinite={true} speed={500} slidesToShow={3} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <div key={n} className="bg-white dark:bg-black rounded-lg overflow-hidden h-full">
                   <div className="aspect-[3/4] bg-gray-200 animate-pulse"></div>
@@ -188,7 +186,7 @@ const TeamSection: React.FC = () => {
           </RevealAnimation>
         </div>
         
-        <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
+        <Slider dots={true} infinite={true} speed={500} slidesToShow={3} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
           {teamMembers.map((member, index) => (
             <TeamMember
               key={member.id}
